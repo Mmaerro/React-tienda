@@ -1,0 +1,18 @@
+.cart{
+    width: 100px;
+}
+.cart a{
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+    margin-right: 30px;
+}
+.cart a span{
+    position: absolute;
+    top: -10px;
+    border-radius: 30%;
+    color: #000;
+    background-color: #fff;
+    padding: 2px 5px 2px 5px;
+    font-size: 10px;
+}
