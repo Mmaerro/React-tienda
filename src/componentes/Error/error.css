@@ -1,0 +1,12 @@
+
+h3{
+    text-align: center;
+    width: 100%;
+    font-size: 30px;
+}
+img[alt="not found"]{
+    text-align: center;
+    margin: 0 auto;
+    width: 500px;
+    margin-left: 35%;
+}

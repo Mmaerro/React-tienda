@@ -1,4 +1,97 @@
-h2{
-    color: black;
-    background: red;
+
+.contlogo {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.contlogo .logo {
+    margin: 0 auto;
+    width: 150px;
+    height: 120px;
+    display: flex;
+    background-color: #000000c7;
+    border-radius: 80%;
+    border: 1px solid #4b4b4bc7;
+    padding: 10px 0;
+    box-shadow: 0 0 10px rgb(207, 207, 207);
+}
+
+.contlogo span {
+    background-color: rgb(255, 0, 0);
+    width: 100%;
+    height: 5px;
+}
+
+.contlogo span:first-child {
+    margin-right: 10px;
+    border-radius: 0 10px 10px 0;
+}
+
+.contlogo span:last-child {
+    margin-left: 10px;
+    border-radius: 10px 0 0 10px;
+}
+
+.menu {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.menu section {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+
+/* GUARNICION */
+.guarnicion {
+    margin: 0 auto;
+    height: 330px;
+    background: linear-gradient(to left, #b8b8b898, #000, rgb(0, 0, 0), #b8b8b898);
+    width: 70%;
+    display: grid;
+    grid-template-columns: 300px 300px;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding-bottom: 20px;
+}
+
+.guarnicion dl {
+    text-align: center;
+}
+
+.guarnicion dl dt {
+    padding-bottom: 10px;
+}
+
+.guarnicion dl dd {
+    padding-top: 5px;
+    margin: 0 auto;
+}
+
+.guarnicion dl:nth-child(3) dt {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.guarnicion p {
+    grid-area: 3 / 1 / auto / 3;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 10px;
+    position: relative;
+}
+
+.guarnicion p b {
+    position: absolute;
+    top: -15px;
+    left: 49%;
 }

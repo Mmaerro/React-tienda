@@ -1,8 +1,8 @@
-
+import React from "react";
 
 const ListNavbar = ( { title } ) => {
   return (
-    <li><a href=" ">{title}</a></li>
+    <li>{title}</li>
   )
 }
 
