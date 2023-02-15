@@ -8,8 +8,7 @@ import  GuarniVeggie  from "../Guarniciones/guarnVeggie";
 import ItemList from "../ItemList/ItemList";
 
 import "./ItemListContainer.css";
-const ItemListContainer = () => {
-  
+const ItemListContainer = (props) => {
   const { id } = useParams();
 
   const [items, setItems] = useState([]),
@@ -52,6 +51,7 @@ const ItemListContainer = () => {
 
   return (
     <div className="menu">
+      <p style={{color:'red', fontSize:'20px'}}>{props.saludo}</p>
      <div className="contlogo">
             <span></span>
             <img className="logo" src="https://res.cloudinary.com/dcm170r29/image/upload/v1675871336/logo_vrnkr8.gif" alt="" />
@@ -60,6 +60,7 @@ const ItemListContainer = () => {
         {guarni === 'meat' ? <h3 className="titleProducts">Hamburguesas de carne</h3> : guarni === 'veg' ? <h3 className="titleProducts">Hamburguesas Vegetarianas</h3>  : <h3 className="titleProducts">Todos los productos</h3>  }
       <ItemList items={items} />
      {guarni === 'meat' ? <GuarniMeat /> : guarni === 'veg' ? <GuarniVeggie /> : undefined }
+
     </div>
   );
 };
