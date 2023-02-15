@@ -1,9 +1,22 @@
 import React from 'react'
+import ItemCount from '../ItemCount/ItemCount';
 
 import './itemDetail.css'
 
 const ItemDetail = ({ product }) => {
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+  }
+  const agregarAlCarrito = (cantidad) => {
+    const obj = {
+      title: product.title,
+      price: product.price,
+      img: product.img,
+      quantity: cantidad,
+    };
 
+    console.log(obj);
+  };
   return (
     <>
       <div className="contlogo">
@@ -26,7 +39,7 @@ const ItemDetail = ({ product }) => {
               
             </ul>
             {product.category === "hambur" || product.category === "veggie" ? (
-              <form action="" method="POST">
+              <form action="" onSubmit={handleSubmit}>
                 {product.category === "hambur" &&
                 product.title !== "Pollo Crispy" ? 
                   <select name="meat" id="">
@@ -47,7 +60,11 @@ const ItemDetail = ({ product }) => {
                   <option value="rusticas">Rusticas</option>
                   <option value="boniatos">Boniatos</option>
                 </select>
-                <input type="submit" value="AGREGAR A MI PEDIDO" />
+                <ItemCount 
+                stock={product.stock}
+                // initial={1}
+                agregarAlCarrito={agregarAlCarrito}
+              />
               </form>
             ) : undefined}
           </figure>

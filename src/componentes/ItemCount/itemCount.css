@@ -1,0 +1,9 @@
+.count{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.count span{
+    color: #fff;
+}
