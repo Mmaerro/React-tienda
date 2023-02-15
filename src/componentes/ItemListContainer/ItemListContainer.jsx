@@ -37,13 +37,9 @@ const ItemListContainer = (props) => {
       const categoryMeat = produFilter.filter((element) => element.category === 'hambur')
       const categoryVeggie = produFilter.filter((element) => element.category === 'veggie')
         if(categoryMeat.length >= 1){
-
           setGuarni('meat')
-
         }else if(categoryVeggie.length >= 1){
-
           setGuarni('veg')
-
         }else {
           setGuarni('')
         }
@@ -60,7 +56,6 @@ const ItemListContainer = (props) => {
         {guarni === 'meat' ? <h3 className="titleProducts">Hamburguesas de carne</h3> : guarni === 'veg' ? <h3 className="titleProducts">Hamburguesas Vegetarianas</h3>  : <h3 className="titleProducts">Todos los productos</h3>  }
       <ItemList items={items} />
      {guarni === 'meat' ? <GuarniMeat /> : guarni === 'veg' ? <GuarniVeggie /> : undefined }
-
     </div>
   );
 };

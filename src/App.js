@@ -12,14 +12,12 @@ function App() {
     <Navbar />
       <Routes>
         <Route path="/" element={<ItemListContainer saludo="Bienvenidos"/>}/>
-
         <Route path="/category/:id" element={< ItemListContainer />}/>
 
         <Route path="/item/:id" element={ <ItemDetailContainer />}/>
       
         <Route path="*" element={<Error />} />
       </Routes>
-
       <Footer />
     </BrowserRouter>
   );
