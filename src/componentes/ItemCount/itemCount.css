@@ -1,9 +1,59 @@
-.count{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.count {
+  position: absolute;
+  bottom: -15px;
+  right: 20px;
 }
-.count span{
-    color: #fff;
+.count span {
+  color: #fff;
+}
+
+.count div {
+  display: grid;
+  grid-template-areas:
+    "sumar span"
+    "restar span";
+  grid-template-rows: auto auto;
+  grid-template-columns: auto 30px;
+  align-items: center;
+  justify-content: right;
+}
+.count div button {
+  font-size: 25px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  align-items: center;
+}
+.count div > button:nth-child(1) {
+  grid-area: sumar;
+}
+.count div > button:nth-child(2) {
+  grid-area: restar;
+}
+.count div > span {
+  font-size: 25px;
+  grid-area: span;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+.count input[type="submit"] {
+  font-size: 12px;
+  top: 15px;
+  position: relative;
+  padding: 10px;
+  background: #b33b16;
+  text-decoration: none;
+  border: 1px solid #000;
+  letter-spacing: 2px;
+  color: rgb(255, 255, 255);
+  transition: 200ms ease-in-out;
+  cursor: pointer;
+}
+.count input[type="submit"]:hover {
+  background-color: #eb4b1a;
 }

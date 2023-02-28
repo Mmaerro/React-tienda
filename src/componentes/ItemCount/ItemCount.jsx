@@ -1,7 +1,13 @@
-import { useState } from "react";
-import './itemCount.css'
-const ItemCount = ({ stock, initial=1, agregarAlCarrito }) => {
+import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
+import { useEffect, useState } from "react";
+
+import "./itemCount.css";
+const ItemCount = ({ stock, initial = 1, onAdd }) => {
   const [contador, setContador] = useState(initial);
+
+  useEffect(() => {
+    setContador(initial);
+  }, [initial]);
 
   const sumar = () => {
     if (contador < stock) {
@@ -17,13 +23,20 @@ const ItemCount = ({ stock, initial=1, agregarAlCarrito }) => {
 
   return (
     <div className="count">
-      <span>{contador}</span>
       <div>
-      <button onClick={sumar}>Sumar</button>
-      <button onClick={restar}>Restar</button>
+        <button onClick={sumar}>
+          <CiCirclePlus />
+        </button>
+        <button onClick={restar}>
+          <CiCircleMinus />
+        </button>
+        <span>{contador}</span>
       </div>
-      <input type="submit" value="AGREGAR A MI PEDIDO" onClick={() => agregarAlCarrito(contador)}/>
-     
+      <input
+        type="submit"
+        value="AGREGAR A MI PEDIDO"
+        onClick={() => onAdd(contador)}
+      />
     </div>
   );
 };

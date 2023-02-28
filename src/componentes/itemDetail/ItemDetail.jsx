@@ -1,22 +1,35 @@
-import React from 'react'
-import ItemCount from '../ItemCount/ItemCount';
+import React, { useContext } from "react";
+import Select from "react-select";
 
-import './itemDetail.css'
+import { CartContext } from "../../context/CartContext";
+import ItemCount from "../ItemCount/ItemCount";
+import "./itemDetail.css";
 
 const ItemDetail = ({ product }) => {
-  const handleSubmit = (e)=>{
-    e.preventDefault();
-  }
-  const agregarAlCarrito = (cantidad) => {
+  const { addToCart, getQuantityById } = useContext(CartContext);
+
+  const onAdd = (cantidad) => {
     const obj = {
-      title: product.title,
-      price: product.price,
-      img: product.img,
+      ...product,
       quantity: cantidad,
     };
-
-    console.log(obj);
+    addToCart(obj);
   };
+
+  const quantity = getQuantityById(product.id);
+
+  const sizeMeat = [
+    { label: "Simple", value: "simple" },
+    { label: "Doble", value: "doble" },
+    { label: "Triple", value: "triple" },
+  ];
+  const guarnicion = [
+    { label: "Sin Guarnicion", value: "sin" },
+    { label: "Fritas", value: "fritas" },
+    { label: "Aros", value: "aros" },
+    { label: "Rusticas", value: "rusticas" },
+    { label: "Boniatos", value: "boniatos" },
+  ];
   return (
     <>
       <div className="contlogo">
@@ -30,48 +43,52 @@ const ItemDetail = ({ product }) => {
       </div>
       <div className="detail">
         <h3 className="titleProducts">{product.title}</h3>
-        <div className="cards ">
+        <div className="cards itemDetail">
           <figure className="imgcard">
             <img src={product.img} alt={`${product.title}`} />
             <figcaption>{product.title}</figcaption>
-            <ul>
-              <li>{product.description}</li>
-              
-            </ul>
             {product.category === "hambur" || product.category === "veggie" ? (
-              <form action="" onSubmit={handleSubmit}>
-                {product.category === "hambur" &&
-                product.title !== "Pollo Crispy" ? 
-                  <select name="meat" id="">
-                    <option value="simple">Simple</option>
-                    <option value="doble">Doble</option>
-                    <option value="triple">Triple</option>
-                  </select>
-                 : 
-                  <select name="meat" id="">
-                    <option value="simple">Simple</option>
-                  </select>
-                }
-
-                <select name="guarni" id="">
-                  <option value="sin">Sin guarnicion</option>
-                  <option value="fritas">Fritas</option>
-                  <option value="aros">Aros</option>
-                  <option value="rusticas">Rusticas</option>
-                  <option value="boniatos">Boniatos</option>
-                </select>
-                <ItemCount 
-                stock={product.stock}
-                // initial={1}
-                agregarAlCarrito={agregarAlCarrito}
-              />
-              </form>
-            ) : undefined}
+              <ul>
+                <li>{product.description}</li>
+                <li style={{ position: "absolute", bottom: "50px" }}>
+                  {product.category === "hambur" &&
+                  product.title !== "Pollo Crispy" ? (
+                    <Select
+                      className="firstSelect"
+                      isClearable={true}
+                      options={sizeMeat}
+                      isSearchable={false}
+                    />
+                  ) : (
+                    <Select
+                      className="firstSelect"
+                      isClearable={true}
+                      isSearchable={false}
+                      options={[{ label: "Simple", value: "simple" }]}
+                    />
+                  )}
+                </li>
+                <li style={{ position: "absolute", bottom: "10px" }}>
+                  <Select
+                    isClearable={true}
+                    className="secondSelect"
+                    options={guarnicion}
+                    isSearchable={false}
+                    name="Guarnicion"
+                  />
+                </li>
+              </ul>
+            ) : (
+              <ul>
+                <li>{product.description}</li>
+              </ul>
+            )}
+            <ItemCount stock={product.stock} initial={quantity} onAdd={onAdd} />
           </figure>
         </div>
       </div>
     </>
   );
-}
+};
 
-export default ItemDetail
+export default ItemDetail;

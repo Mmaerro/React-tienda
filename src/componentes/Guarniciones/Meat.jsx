@@ -1,6 +1,6 @@
 import React from 'react'
 
-const guarniMeat = () => {
+const Meat = () => {
   return (
     <aside className="guarnicion">
     <dl>
@@ -34,4 +34,4 @@ const guarniMeat = () => {
   )
 }
 
-export default guarniMeat
+export default Meat

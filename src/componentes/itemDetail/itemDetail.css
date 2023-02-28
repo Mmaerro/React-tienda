@@ -1,19 +1,23 @@
-.detail{
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.detail {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-.titleProducts{
-    background: url('https://res.cloudinary.com/dcm170r29/image/upload/v1675871337/back_r1conn.png');
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-attachment: fixed;
-    font-family: 'Oswald', sans-serif;
-    color: white;
-    font-size: 38px;
-    letter-spacing: 10px;
-    text-transform: uppercase;
+.titleProducts {
+  background: url("https://res.cloudinary.com/dcm170r29/image/upload/v1675871337/back_r1conn.png");
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-attachment: fixed;
+  font-family: "Oswald", sans-serif;
+  color: white;
+  font-size: 38px;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+}
+.contlogo {
+  width: 90%;
+  margin: 0 AUTO;
 }

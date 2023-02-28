@@ -1,8 +1,8 @@
 import React from 'react'
 
-const guarnVeggie = () => {
+const Veggie = () => {
   return (
-    <div class="guarnicion">
+    <div className="guarnicion">
             <dl>
                 <dt>Sin fritas</dt>
                 <dd>SIMPLE</dd>
@@ -28,4 +28,4 @@ const guarnVeggie = () => {
   )
 }
 
-export default guarnVeggie
+export default Veggie
