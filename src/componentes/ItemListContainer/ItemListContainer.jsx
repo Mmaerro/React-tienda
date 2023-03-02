@@ -9,7 +9,7 @@ import ItemList from "../ItemList/ItemList";
 
 import "./ItemListContainer.css";
 
-import { DotLoader } from "react-spinners";
+import { FadeLoader } from "react-spinners";
 
 //importar la DB
 import { db } from "../../firebaseConfig";
@@ -19,7 +19,6 @@ const ItemListContainer = () => {
   const styles = {
     display: "block",
     margin: "0 auto",
-    borderColor: "red",
   };
 
   const { id } = useParams();
@@ -94,8 +93,8 @@ const ItemListContainer = () => {
         <h3 className="titleProducts">Todos los productos</h3>
       )}
       {items.length < 1 ? (
-        <DotLoader
-          color={"red"}
+        <FadeLoader
+          color={"black"}
           cssOverride={styles}
           size={80}
           aria-label="Loading Spinner"

@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Select from "react-select";
 import { Link } from "react-router-dom";
 import { MdOutlineReadMore } from "react-icons/md";
+import Alert from "@mui/material/Alert";
 
 import { CartContext } from "../../context/CartContext";
 import ItemCount from "../ItemCount/ItemCount";
@@ -9,13 +10,29 @@ import "./ProductCard.css";
 
 const ProductCard = ({ element }) => {
   const { addToCart, getQuantityById } = useContext(CartContext);
+  const [alert, setAlert] = useState("");
+  const [meat, setMeat] = useState("");
+  const [guarnis, setGuarnis] = useState("");
 
   const onAdd = (cantidad) => {
-    const obj = {
-      ...element,
-      quantity: cantidad,  
-    };
-    addToCart(obj);
+    if (meat !== "" && guarnis !== "") {
+      const obj = {
+        ...element,
+        quantity: cantidad,
+        necar: meat,
+        guarnicion: guarnis,
+      };
+      addToCart(obj);
+      setAlert("hecho");
+      setTimeout(() => {
+        setAlert("");
+      }, 2000);
+    } else {
+      setAlert("false");
+      setTimeout(() => {
+        setAlert("");
+      }, 2000);
+    }
   };
 
   const quantity = getQuantityById(element.id);
@@ -36,6 +53,12 @@ const ProductCard = ({ element }) => {
     { label: "Rusticas", value: "rusticas" },
     { label: "Boniatos", value: "boniatos" },
   ];
+  const sls = (value) => {
+    setMeat(value.value);
+  };
+  const slsc = (value) => {
+    setGuarnis(value.value);
+  };
   return (
     <div className="cards">
       <figure className="imgcard">
@@ -49,19 +72,28 @@ const ProductCard = ({ element }) => {
         {element.category === "hambur" || element.category === "veggie" ? (
           <ul>
             <li>{element.description}</li>
+            {alert === "false" ? (
+              <li>
+                <Alert severity="error">
+                  Por favor seleccinar Tamaño y Guarnicion
+                </Alert>
+              </li>
+            ) : alert === "hecho" ? (
+              <Alert severity="success">Agregado al Carrito!</Alert>
+            ) : undefined}
             <li style={{ position: "absolute", bottom: "50px" }}>
               {element.category === "hambur" &&
               element.title !== "Pollo Crispy" ? (
                 <Select
                   className="firstSelect"
-                  isClearable={true}
                   options={sizeMeat}
                   isSearchable={false}
+                  onChange={sls}
                 />
               ) : (
                 <Select
+                  onChange={sls}
                   className="firstSelect"
-                  isClearable={true}
                   isSearchable={false}
                   options={[{ label: "Simple", value: "simple" }]}
                 />
@@ -69,7 +101,7 @@ const ProductCard = ({ element }) => {
             </li>
             <li style={{ position: "absolute", bottom: "10px" }}>
               <Select
-                isClearable={true}
+                onChange={slsc}
                 className="secondSelect"
                 options={guarnicion}
                 isSearchable={false}

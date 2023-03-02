@@ -1,6 +1,6 @@
-import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
+import { FiMinusCircle } from "react-icons/fi";
 import { useEffect, useState } from "react";
-
+import { FiPlusCircle } from "react-icons/fi";
 import "./itemCount.css";
 const ItemCount = ({ stock, initial = 1, onAdd }) => {
   const [contador, setContador] = useState(initial);
@@ -25,10 +25,10 @@ const ItemCount = ({ stock, initial = 1, onAdd }) => {
     <div className="count">
       <div>
         <button onClick={sumar}>
-          <CiCirclePlus />
+          <FiPlusCircle />
         </button>
         <button onClick={restar}>
-          <CiCircleMinus />
+          <FiMinusCircle />
         </button>
         <span>{contador}</span>
       </div>
