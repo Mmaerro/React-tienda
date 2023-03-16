@@ -2,12 +2,13 @@ import { FiMinusCircle } from "react-icons/fi";
 import { useEffect, useState } from "react";
 import { FiPlusCircle } from "react-icons/fi";
 import "./itemCount.css";
-const ItemCount = ({ stock, initial = 1, onAdd }) => {
+const ItemCount = ({ stock, initial = 1, onAdd, tf }) => {
   const [contador, setContador] = useState(initial);
-
+  const [tYf, setTyF] = useState();
   useEffect(() => {
+    setTyF(tf);
     setContador(initial);
-  }, [initial]);
+  }, [initial, tf]);
 
   const sumar = () => {
     if (contador < stock) {
@@ -32,11 +33,13 @@ const ItemCount = ({ stock, initial = 1, onAdd }) => {
         </button>
         <span>{contador}</span>
       </div>
-      <input
-        type="submit"
-        value="AGREGAR A MI PEDIDO"
-        onClick={() => onAdd(contador)}
-      />
+      {tYf ? (
+        <input
+          type="submit"
+          value="AGREGAR A MI PEDIDO"
+          onClick={() => onAdd(contador)}
+        />
+      ) : undefined}
     </div>
   );
 };

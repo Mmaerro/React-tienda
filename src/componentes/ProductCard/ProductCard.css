@@ -12,6 +12,7 @@
   text-align: center;
   box-shadow: 0 0 8px #000000;
   border: 1px solid rgb(143, 143, 143);
+  position: relative;
 }
 
 .imgcard {
@@ -42,7 +43,7 @@
   border-bottom: none;
 }
 
-.imgcard ul {
+.imgcard .ul {
   max-width: 232px;
   margin: 0;
   background: #3d3d3de0;
@@ -73,10 +74,9 @@
   position: absolute;
   top: -11px;
   left: 10px;
-  z-index: 100;
 }
 
-.imgcard ul li::before {
+.imgcard .ul li::before {
   content: "-";
   color: rgb(131, 131, 131);
   position: absolute;
@@ -89,7 +89,7 @@
 }
 .firstSelect {
   position: absolute;
-  z-index: 100;
+  z-index: 2;
   width: fit-content;
   font-size: 10px;
   height: fit-content;
@@ -104,7 +104,11 @@
   height: fit-content;
   padding: 0px;
   color: #000;
-  z-index: 10;
+  z-index: 1;
+}
+.alert {
+  position: absolute;
+  z-index: 909900;
 }
 
 .colors {

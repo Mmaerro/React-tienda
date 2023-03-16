@@ -1,0 +1,40 @@
+.finish {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.finish h4 {
+  font-size: 30px;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  margin: 20px;
+  color: #000;
+}
+.finish p {
+  font-size: 30px;
+  width: 500px;
+  height: fit-content;
+  background-color: #ffffff80;
+  box-shadow: 0 0 8px #000;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 11px;
+  border: 1px solid #000;
+}
+.finish p b {
+  padding: 10px;
+  letter-spacing: 2px;
+}
+.finish p span {
+  background-color: #098400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border-radius: 10px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-right: 1px solid #000;
+  width: 50px;
+}

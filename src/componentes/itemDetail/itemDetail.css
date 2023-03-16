@@ -4,20 +4,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
 }
+
 .titleProducts {
   background: url("https://res.cloudinary.com/dcm170r29/image/upload/v1675871337/back_r1conn.png");
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-attachment: fixed;
   font-family: "Oswald", sans-serif;
-  color: white;
+  color: #424242d7;
   font-size: 38px;
   letter-spacing: 10px;
   text-transform: uppercase;
+  overflow-y: visible;
 }
 .contlogo {
   width: 90%;
-  margin: 0 AUTO;
+  margin: 0 auto;
+}
+.guar {
+  width: 700px;
+  background: linear-gradient(to right, #00000000, #00000000, #00000000);
+}
+.sili {
+  font-size: 15px;
 }

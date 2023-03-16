@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { products } from "../../productsMock";
 import GuarniMeat from "../Guarniciones/Meat";
 import GuarniVeggie from "../Guarniciones/Veggie";
 
@@ -27,10 +26,6 @@ const ItemListContainer = () => {
   const [guarni, setGuarni] = useState("");
 
   useEffect(() => {
-    const productsFiltered = products.filter(
-      (product) => product.category === id
-    );
-
     const itemCollection = collection(db, "products");
     if (id) {
       const q = query(itemCollection, where("category", "==", id));
@@ -59,15 +54,9 @@ const ItemListContainer = () => {
         .catch((err) => console.log(err));
     }
 
-    const categoryMeat = productsFiltered.filter(
-      (element) => element.category === "hambur"
-    );
-    const categoryVeggie = productsFiltered.filter(
-      (element) => element.category === "veggie"
-    );
-    if (categoryMeat.length >= 1) {
+    if (id === "hambur") {
       setGuarni("meat");
-    } else if (categoryVeggie.length >= 1) {
+    } else if (id === "veggie") {
       setGuarni("veg");
     } else {
       setGuarni("");
@@ -107,7 +96,9 @@ const ItemListContainer = () => {
             <GuarniMeat />
           ) : guarni === "veg" ? (
             <GuarniVeggie />
-          ) : undefined}
+          ) : (
+            ""
+          )}
         </>
       )}
     </div>

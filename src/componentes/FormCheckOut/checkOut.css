@@ -1,0 +1,56 @@
+.check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.check form {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  flex-direction: column;
+  border-radius: 10px;
+  width: 450px;
+  height: 400px;
+  box-shadow: 0 0 8px #ffffffa9;
+  position: relative;
+}
+
+.check form label {
+  padding: 10px;
+  margin: 10px 0 0 10px;
+  color: #fff;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  font-weight: 900;
+}
+.check form input {
+  width: fit-content;
+  margin: 5px;
+  border: none;
+  padding: 5px;
+  color: #000;
+  transition: 300ms ease-in;
+  background-color: rgba(255, 255, 255, 0.649);
+}
+.check form input:focus {
+  box-shadow: 0 0 10px #000;
+}
+.check button {
+  position: absolute;
+  bottom: 80px;
+  left: 180px;
+  margin: 0 auto;
+  width: 100px;
+  margin: 5px;
+  border: none;
+  padding: 10px;
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.649);
+  border: 1px solid rgba(255, 255, 255, 0.649);
+  transition: 300ms ease-in;
+}
+.check button:hover {
+  border: 1px solid rgb(61, 125, 0);
+  background-color: #0d4f01c8;
+}

@@ -1,23 +1,29 @@
-import React, { useContext } from "react";
+import React from "react";
 import Select from "react-select";
+import Alert from "@mui/material/Alert";
 
-import { CartContext } from "../../context/CartContext";
+import GuarniMeat from "../Guarniciones/Meat";
+import GuarniVeggie from "../Guarniciones/Veggie";
+
 import ItemCount from "../ItemCount/ItemCount";
 import "./itemDetail.css";
+import Selectors from "../selects/Selectors";
 
-const ItemDetail = ({ product }) => {
-  const { addToCart, getQuantityById } = useContext(CartContext);
-
-  const onAdd = (cantidad) => {
-    const obj = {
-      ...product,
-      quantity: cantidad,
-    };
-    addToCart(obj);
+const ItemDetail = ({
+  product,
+  quantity,
+  onAdd,
+  addMeat,
+  addGuarni,
+  alert,
+  getSalsa,
+}) => {
+  const styleAlert = {
+    zIndex: "999900",
+    fontSize: "10px",
+    padding: "2px",
+    width: "fit-content",
   };
-
-  const quantity = getQuantityById(product.id);
-
   const sizeMeat = [
     { label: "Simple", value: "simple" },
     { label: "Doble", value: "doble" },
@@ -41,20 +47,35 @@ const ItemDetail = ({ product }) => {
         />
         <span></span>
       </div>
+      <h3 className="titleProducts">{product.title}</h3>
       <div className="detail">
-        <h3 className="titleProducts">{product.title}</h3>
         <div className="cards itemDetail">
           <figure className="imgcard">
             <img src={product.img} alt={`${product.title}`} />
             <figcaption>{product.title}</figcaption>
             {product.category === "hambur" || product.category === "veggie" ? (
-              <ul>
+              <ul className="ul">
                 <li>{product.description}</li>
+                {alert === "false" ? (
+                  <li className="alert">
+                    <Alert style={styleAlert} severity="error">
+                      Por favor seleccinar <b>Tamaño,</b>
+                      <b>Salsas</b> y <b>Guarnicion</b>
+                    </Alert>
+                  </li>
+                ) : alert === "hecho" ? (
+                  <li className="alert">
+                    <Alert style={styleAlert} severity="success">
+                      <b>Agregado al Carrito!</b>
+                    </Alert>
+                  </li>
+                ) : undefined}
                 <li style={{ position: "absolute", bottom: "50px" }}>
                   {product.category === "hambur" &&
                   product.title !== "Pollo Crispy" ? (
                     <Select
                       className="firstSelect"
+                      onChange={(e) => addMeat(e.value)}
                       isClearable={true}
                       options={sizeMeat}
                       isSearchable={false}
@@ -62,6 +83,7 @@ const ItemDetail = ({ product }) => {
                   ) : (
                     <Select
                       className="firstSelect"
+                      onChange={(e) => addMeat(e.value)}
                       isClearable={true}
                       isSearchable={false}
                       options={[{ label: "Simple", value: "simple" }]}
@@ -72,19 +94,37 @@ const ItemDetail = ({ product }) => {
                   <Select
                     isClearable={true}
                     className="secondSelect"
+                    onChange={(e) => addGuarni(e.value)}
                     options={guarnicion}
                     isSearchable={false}
                     name="Guarnicion"
                   />
                 </li>
+                <li>
+                  <Selectors child={getSalsa} />
+                </li>
               </ul>
             ) : (
-              <ul>
+              <ul className="ul">
                 <li>{product.description}</li>
               </ul>
             )}
-            <ItemCount stock={product.stock} initial={quantity} onAdd={onAdd} />
+            <ItemCount
+              tf={true}
+              stock={product.stock}
+              initial={quantity}
+              onAdd={onAdd}
+            />
           </figure>
+        </div>
+        <div className="guar">
+          {product.category === "hambur" ? (
+            <GuarniMeat />
+          ) : product.category === "veggie" ? (
+            <GuarniVeggie />
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </>
