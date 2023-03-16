@@ -1,6 +1,6 @@
 import React from "react";
 import "./footer.css";
-import img from "../../assets/img/logWeb.png";
+import img from "../../assets/img/logWebb.png";
 import { BsInstagram, BsWhatsapp, BsFacebook } from "react-icons/bs";
 const Footer = () => {
   return (
@@ -27,16 +27,13 @@ const Footer = () => {
       <div className="legal">
         <ul>
           <li>
-            <a href="">Aviso Legal</a>
+            <a href="#">Politica De Privacidad</a>
           </li>
           <li>
-            <a href="">Politica De Privacidad</a>
+            <a href="#">Preferencias De Cookies</a>
           </li>
           <li>
-            <a href="">Preferencias De Cookies</a>
-          </li>
-          <li>
-            <a href="">Accesibilidad</a>
+            <a href="#">Accesibilidad</a>
           </li>
         </ul>
       </div>
