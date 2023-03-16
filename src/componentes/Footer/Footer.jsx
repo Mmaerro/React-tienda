@@ -1,6 +1,6 @@
 import React from "react";
 import "./footer.css";
-import img from "../../assets/img/quelowase.png";
+import img from "../../assets/img/logWeb.png";
 import { BsInstagram, BsWhatsapp, BsFacebook } from "react-icons/bs";
 const Footer = () => {
   return (
