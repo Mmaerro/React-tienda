@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
 import React from "react";
+
 import "./footer.css";
 import img from "../../assets/img/logWebb.png";
+
 import { BsInstagram, BsWhatsapp, BsFacebook } from "react-icons/bs";
 const Footer = () => {
   return (
@@ -13,27 +16,27 @@ const Footer = () => {
       </div>
       <div className="icons-idioma">
         <div className="icons">
-          <a href="#">
+          <Link to={"/"}>
             <BsInstagram className="i" />
-          </a>
-          <a href="#">
+          </Link>
+          <Link to={"/"}>
             <BsWhatsapp className="i" />
-          </a>
-          <a href="#">
+          </Link>
+          <Link to={"/"}>
             <BsFacebook className="i" />
-          </a>
+          </Link>
         </div>
       </div>
       <div className="legal">
         <ul>
           <li>
-            <a href="#">Politica De Privacidad</a>
+            <Link to={"/"}>Politica De Privacidad</Link>
           </li>
           <li>
-            <a href="#">Preferencias De Cookies</a>
+            <Link to={"/"}>Preferencias De Cookies</Link>
           </li>
           <li>
-            <a href="#">Accesibilidad</a>
+            <Link to={"/"}>Accesibilidad</Link>
           </li>
         </ul>
       </div>
